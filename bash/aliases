@@ -19,13 +19,13 @@ __has_parent_dir () {
 }
 
 #__vcs_name() {
-   # if [ -d .svn ]; then
-   #     echo "-[svn]";
-   # elif __has_parent_dir ".git"; then
-   #     echo "-[$(__git_ps1 'git %s')]";
-   # elif __has_parent_dir ".hg"; then
-   #     echo "-[hg $(hg branch)]"
-   # fi
+# if [ -d .svn ]; then
+#     echo "-[svn]";
+# elif __has_parent_dir ".git"; then
+#     echo "-[$(__git_ps1 'git %s')]";
+# elif __has_parent_dir ".hg"; then
+#     echo "-[hg $(hg branch)]"
+# fi
 #}
 
 black=$(tput -Txterm setaf 0)
@@ -40,7 +40,13 @@ bold=$(tput -Txterm bold)
 reset=$(tput -Txterm sgr0)
 
 # Nicely formatted terminal prompt
-export PS1='\n\[$bold\]\[$black\][\[$dk_blue\]\@\[$black\]]-[\[$green\]\u\[$yellow\]@\[$green\]\h\[$black\]]-[\[$pink\]\w\[$black\]]\[\033[0;33m\]$ \[\033[00m\]\[$reset\]\n\[$reset\]\$ '
+#export PS1='\n\[$bold\]\[$black\][\[$dk_blue\]\@\[$black\]]-[\[$green\]\u\[$yellow\]@\[$green\]\h\[$black\]]-[\[$pink\]\w\[$black\]]\[\033[0;33m\]$ \[\033[00m\]\[$reset\]\n\[$reset\]\$ '
+
+if [ $(id -u) -eq 0 ]; then
+    export PS1="\[\e[0;31m\]\u \[\e[0;35m\]@ \[\e[0;34m\]\w \[\e[0;32m\]\d \n\[\e[0;32m\]$ \[\e[0m\]"
+else
+    export PS1="\[\e[0;33m\]\u \[\e[0;35m\]@ \[\e[0;34m\]\W \[\e[0;32m\]\d \n\[\e[0;32m\]$ \[\e[0m\]"
+fi
 
 alias ls='ls -F --color=always'
 alias dir='dir -F --color=always'
