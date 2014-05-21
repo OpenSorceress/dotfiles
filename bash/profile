@@ -1,0 +1,6 @@
+ 
+source ~/.bash_aliases
+source ~/.bashrc
+ 
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export NODE_PATH=".:/usr/local/lib/node_modules:/usr/local/lib:/usr/local:/usr/lib/node_modules"

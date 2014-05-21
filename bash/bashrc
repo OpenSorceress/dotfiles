@@ -1,1 +1,21 @@
-/home/vagrant/.bashrc
+ #if [ $(id -u) -eq 0 ];
+ #then
+ #    export PS1="\[\e[0;31m\]\u \[\e[0;35m\]@ \[\e[0;34m\]\w \[\e[0;32m\]\d \n\[\e[0;32m\]$ \[\e[0m\]"
+ #else
+ #    export PS1="\[\e[0;33m\]\u \[\e[0;35m\]@ \[\e[0;34m\]\W \[\e[0;32m\]\d \n\[\e[0;32m\]$ \[\e[0m\]"
+ #fi
+ 
+ alias ls="ls -alG"
+ alias vi="vim -n"
+ export EDITOR=vim
+ alias projects="cd /Users/leahlasalla/Sites/projects"
+ PATH="/usr/local/bin:$PATH"
+ export PATH="/usr/sbin:$PATH"
+# export PATH="$(brew --prefix homebrew/php/php55)/bin:$PATH"
+# export PATH="/usr/local/etc/php/5.5/conf.d:$PATH"
+# export PATH="/usr/local/bin/pear:$PATH"
+# export PATH="/usr/local/Cellar/php55/5.5.11/lib/php/PEAR:$PATH"
+# export PATH="/usr/local/mysql/bin:$PATH"
+ 
+export XDEBUG_CONFIG="idekey=PHPSTORM remote_host=localhost profiler_enable=1 trace_enable=1" 
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
